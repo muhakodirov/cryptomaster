@@ -1,0 +1,83 @@
+/* CoinsTable.css */
+.coinsTable {
+    width: 70%;
+    margin: 0 auto;
+    /* Adjust as needed */
+    border-collapse: collapse;
+}
+
+
+.coinsTable th,
+.coinsTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+    color: #fff;
+    text-align: center;
+    /* Center the text */
+}
+
+.coinsTable th {
+    background-color: chocolate;
+    /* border-radius: 8px 0 10px 0; */
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.coinsTable th:first-child {
+    text-align: left;
+    /* Left-align the "Name" column */
+}
+
+.coinsTable td:first-child {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    /* Left-align the "Name" column */
+    /* padding: 20px; */
+
+}
+
+/* .coinsTable td:nth-child(2),
+.coinsTable td:nth-child(3) {
+    text-align: center; /* Center the "Price" and "24Std.%" columns */
+
+
+.tableCoinImages {
+    margin-right: 10px;
+    width: 30px;
+    border-radius: 25px;
+    /* align-items: center; */
+}
+
+.coinsTable tr {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large;
+
+}
+
+
+.coinsTable tbody {
+    background-color: #2d2c2c;
+
+}
+
+.coinsTable tbody tr:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+
+.table-container {
+    max-height: 700px;
+    /* Set a maximum height */
+    overflow-y: auto hidden;
+    /* Enable vertical scrolling */
+    padding-top: 25px;
+    /* Add padding to the container */
+}
