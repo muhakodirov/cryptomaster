@@ -70,11 +70,15 @@
 }
 
 .table-container .priceChangeColor_green{
-    color: rgb(11, 184, 46);
+    color: rgb(247, 247, 247);
+    background-color: green;
+    /* border-radius: 20px; */
 }
 
 .table-container .priceChangeColor_red{
-    color: red;
+    color: rgb(238, 232, 232);
+    background-color: red;
+    /* border-radius: px; */
 }
 
 .coinsTable tbody tr:hover {

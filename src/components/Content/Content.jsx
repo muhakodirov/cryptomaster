@@ -34,7 +34,6 @@ function Content() {
     };
 
     useEffect(() => {
-
         async function getTrending() {
             const res = await fetch(url)
             const data = await res.json()
