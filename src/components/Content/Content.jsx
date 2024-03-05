@@ -70,7 +70,7 @@ function Content() {
 
 
                 <div className={styles.searchInput}>
-                    <input onChange={(e) => setSearchInput(e.target.value)} type="text" placeholder="Search coins" />
+                    <input onChange={(e) => setSearchInput(e.target.value.toLowerCase())} type="text" placeholder="Search coins" />
                 </div>
                 {searchInput ? (
     <>
@@ -85,11 +85,11 @@ function Content() {
                     </thead>
                     <tbody>
                         
-                         {coinsList.data?.filter(coin => coin.name.includes(searchInput)).map((coin, index) => (
+                         {coinsList.data?.filter(coin => coin.name.toLowerCase().includes(searchInput)).map((coin, index) => (
                         <tr key={index}>
                             <td>
                               
-                                <b>{coin.name} - {coin.symbol}</b>
+                                <b>{coin.name}</b>
                             </td>
                             <td>{coin.priceUsd.substring(0, 10)}</td>
                             <td className={coin.changePercent24Hr.charAt(0) === '-' ? 'priceChangeColor_red' : 'priceChangeColor_green'}>
@@ -98,12 +98,8 @@ function Content() {
                         </tr>
                     ) )}
                     </tbody>
-                    {coinsList.data.filter(coin => !coin.name.includes(searchInput)).length === coinsList.data.length && (
-                       
-                            
-                                <LuSearchX className='centered-big' /> 
-                                
-                        
+                    {coinsList.data.filter(coin => !coin.name.toLowerCase().includes(searchInput)).length === coinsList.data.length && (
+                        <LuSearchX className='centered-big' /> 
                     )}
                 </table>
             </div>

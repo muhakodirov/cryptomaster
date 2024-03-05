@@ -8,7 +8,7 @@ function Navbar() {
                 <h2> CRYPTO MASTER. </h2>
             </div>
             <div className={styles.navbarItems}>
-                <h3>
+                <h3 className={styles.navbarItemsText}>
                     <a href=""> CRYPTO NEWS </a>
                 </h3>
             </div>
