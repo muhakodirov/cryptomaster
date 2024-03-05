@@ -42,7 +42,7 @@ function Content() {
         getTrending()
         dispatch(fetchCoins())
 
-    }, [])
+    }, [dispatch])
 
     return (
         <div className={styles.content}>
