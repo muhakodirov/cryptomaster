@@ -1,19 +1,42 @@
+
 import React from 'react'
 import styles from './Navbar.module.css'
+import { NavLink, Outlet } from 'react-router-dom'
 
-function Navbar() {
+
+function Layout() {
+
     return (
+        <>
         <div className={styles.navbar}>
             <div className={styles.navbarLogo}>
-                <h2> CRYPTO MASTER. </h2>
+                <h2> CRYPTO TRACKER. </h2>
             </div>
-            <div className={styles.navbarItems}>
-                <h3 className={styles.navbarItemsText}>
-                    <a href=""> CRYPTO NEWS </a>
-                </h3>
-            </div>
+            <div className={styles.navbarLinks}>
+                    <NavLink
+                        className={styles.navLink}
+                   
+                        to="/">
+                            Home 
+                    </NavLink>
+                    <NavLink
+                    
+                        className={styles.navLink}
+                        to="/watchlist">
+                            Watchlist 
+                    </NavLink>
+                    <NavLink
+                        className={styles.navLink}
+                        to="/news">
+                            News
+                    </NavLink>
+                </div>
         </div>
+         <Outlet />
+         </>
     )
+
 }
 
-export default Navbar
+
+export default Layout

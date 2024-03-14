@@ -5,14 +5,32 @@
 /* General Styles */
 .content {
     padding-top: 20px;
+
+    /* Horizontally center the content */
+   
 }
 
+.contentH3{
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+}
+
+/* .trendH3Text{
+    font-size: 30px;
+     
+}  */
+
 .content h3 {
+    background-color: rgb(163, 13, 13);
+    width: auto;
+    border-radius: 10px;
+    
     text-align: center;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 40px;
-    color: chocolate;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 41px;
+    color: rgb(246, 246, 246);
 }
 
 /* Header Styles */
@@ -99,7 +117,7 @@
     outline: none;
 }
 
-/* YourComponent.module.css */
+
 
 
 
@@ -133,6 +151,14 @@
     background-color: #555;
     /* Change background color on hover */
 }
+
+
+
+
+
+
+
+
 
 
 @keyframes bounceAnimation {

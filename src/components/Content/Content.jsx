@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Content.module.css'
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 import { SlArrowDownCircle } from "react-icons/sl";
+import { IoIosHeartEmpty } from "react-icons/io"
+import { FcLike } from "react-icons/fc";
 import { Link as ScrollLink } from 'react-scroll';
 import { FaArrowUp } from 'react-icons/fa';
 import { CoinsTable } from '../CoinsTable';
 import { fetchCoins } from '../../slice/coinSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import '../CoinsTable.css';
+import { toggleFavorite } from '../../slice/coinSlice';
 import { LuSearchX } from "react-icons/lu";
+import Card from '../Card/Card';
 const url = "https://api.coingecko.com/api/v3/search/trending"
 
 
@@ -19,11 +25,14 @@ function Content() {
     const dispatch = useDispatch();
     // const isLoading = useSelector((state) => state.coin.isLoading)
    const [searchInput, setSearchInput] = useState('')
-    console.log(searchInput)
+
     const [trending, setTrending] = useState([])
     const coinsList = useSelector((state) => state.coin.coin)
 
+    const isLoading = useSelector((state) => state.coin.isLoading)
+  
    
+
 
 
     const scrollToTop = () => {
@@ -44,16 +53,43 @@ function Content() {
 
     }, [dispatch])
 
+
+
+
+
+    if (isLoading) return <>
+    <Stack 
+           paddingTop={20}     
+           alignItems="center"
+           justifyContent="center"
+           sx={{ color: 'grey.500' }} spacing={2} direction="row">
+     <CircularProgress color="secondary" />
+   </Stack>
+   </>
+
+
+
+
+
     return (
         <div className={styles.content}>
-            <h3>TRENDING COINS</h3>
+            <div className={styles.contentH3}>
+                <h3> <span className={styles.trendH3Text}> IN TRAND FOR NOW</span> </h3>
+            </div>
             <div className={styles.contentHeader}>
-                {trending.slice(8, 15).map((coin, id) => {
-                    return <div key={id} className={styles.coinItem} >
-                        <img src={coin?.item?.large} alt="" />
-                        <h3>{coin.item.name}</h3>
-                        <p>{coin?.item?.data?.price.substring(0,8)}</p>
-                    </div>
+                {trending.slice(0,6).map((coin, id) => {
+                    return (
+                        <div key={id}>
+                            <Card
+                                image={coin?.item?.large}
+                                name={coin?.item?.name}
+                                price={coin?.item?.data?.price.substring(0,8)}
+                                marketCap={coin.item?.data?.market_cap}
+                                volume={coin.item?.data?.total_volume}
+                                />
+                        </div>
+                    ) 
+                
                 })}
             </div>
 
@@ -70,7 +106,7 @@ function Content() {
 
 
                 <div className={styles.searchInput}>
-                    <input onChange={(e) => setSearchInput(e.target.value.toLowerCase())} type="text" placeholder="Search coins" />
+                    <input onChange={(e) => setSearchInput(e.target.value.toLowerCase())} type="text" placeholder="Search for another coins" />
                 </div>
                 {searchInput ? (
     <>
@@ -79,26 +115,29 @@ function Content() {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>24Std.%</th>
+                            <th>Price in $</th>
+                            <th>Change (24Std.%)</th>
                         </tr>
                     </thead>
                     <tbody>
                         
-                         {coinsList.data?.filter(coin => coin.name.toLowerCase().includes(searchInput)).map((coin, index) => (
+                         {coinsList?.filter(coin => coin.name.toLowerCase().includes(searchInput)).map((coin, index) => (
                         <tr key={index}>
-                            <td>
-                              
-                                <b>{coin.name}</b>
-                            </td>
+                           <td>
+                            {coin.isFavorite ? 
+                            <FcLike className='coinFavorite' onClick={() => dispatch(toggleFavorite(coin.id))}/>
+                            : <IoIosHeartEmpty className='coinFavorite' onClick={() => dispatch(toggleFavorite(coin.id))}/>
+                          }
+                            <b> {coin.name} </b>
+                          </td>
                             <td>{coin.priceUsd.substring(0, 10)}</td>
-                            <td className={coin.changePercent24Hr.charAt(0) === '-' ? 'priceChangeColor_red' : 'priceChangeColor_green'}>
-                                {coin.changePercent24Hr.substring(0, 5) + ' %'}
-                            </td>
+                            <td>
+                           <span className={coin.changePercent24Hr.charAt(0) === '-' ? 'priceChangeColor_red' : 'priceChangeColor_green'}> {coin.changePercent24Hr.substring(0, 5) + ' ' + '%'} </span>
+                          </td>
                         </tr>
                     ) )}
                     </tbody>
-                    {coinsList.data.filter(coin => !coin.name.toLowerCase().includes(searchInput)).length === coinsList.data.length && (
+                    {coinsList.filter(coin => !coin.name.toLowerCase().includes(searchInput)).length === coinsList.length && (
                         <LuSearchX className='centered-big' /> 
                     )}
                 </table>

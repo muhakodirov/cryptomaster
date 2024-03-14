@@ -1,0 +1,93 @@
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 70px;
+    height: 70px; 
+    padding-bottom: 0.9em;
+    border-radius: 30px;
+  }
+
+  .container {
+    display: flex;
+    justify-content:space-between; 
+    align-items: flex-start;
+  }
+
+.coin_card {
+   
+    background-color: #f9f9f9;
+    border-radius: 40px;
+    box-shadow: 10px 10px 10px 10px rgba(197, 195, 195, 0.1);
+    width: 25%;
+    padding: 40px;
+    margin: 40px 20px;
+    margin-right: auto;
+  }
+  
+.coin_news{
+  background-color: #f9f9f9;
+  border-radius: 40px;
+  width: 50%;
+  padding: 40px;
+
+  margin: 40px 20px;
+}
+
+  
+  .coin_card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .coin_info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .coin_info p {
+    margin-bottom: 10px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  }
+  
+  .coinChangeMinus{
+    background-color: red;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+  }
+  .coinChangePlus{
+    background-color: green;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+
+  .coin_info a {
+    color: white;
+    text-decoration: none;
+
+    background-color: black;
+    border-radius: 5px;
+  }
+  
+  .coinPrice{
+    
+    color: white;
+    background-color: green;
+    box-shadow: 10px 10px 40px 0px gray;
+    border-radius: 2px;
+    width: fit-content;
+    height: fit-content;
+    font-weight: bold;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    align-self: center;
+  }

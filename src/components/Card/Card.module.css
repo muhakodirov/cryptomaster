@@ -1,0 +1,90 @@
+.cryptoCard {
+    background-color: white;
+    width: 250px; /* Adjust the width as needed */
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(158, 5, 5, 0.1);
+    transition: transform 0.7s ease; /* Add transition for box-shadow */
+  }
+  
+  .cryptoCard:hover {
+    box-shadow: 10px 0px 90px 100px rgba(136, 52, 3, 0.2); /* Apply box-shadow on hover */
+
+  }
+  
+  .cryptoCardContent {
+    padding: 20px;
+  }
+  
+  .avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 70px; /* Adjust the avatar size as needed */
+    height: 70px; /* Adjust the avatar size as needed */
+    padding-bottom: 0.9em;
+    border-radius: 30px;
+  }
+  
+  .cryptoName {
+    font-size: 20px; /* Adjust the font size as needed */
+    margin-bottom: 10px;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+  }
+  
+  .cryptoInfo {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .cryptoInfo > p {
+    font-size: 18px; /* Adjust the font size as needed */
+    margin-bottom: 5px;
+  }
+  .cryptoPrice {
+    padding-top: 10px;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    align-self: center;
+  }
+  
+  .footerInfo{
+    background-color: rgb(186, 184, 182);
+    border-radius: 15px;
+    width:200px;
+    align-self: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .cryptoMarketCap {
+    color: black;
+    font-size: 15px;
+  }
+
+  .cryptoVolume {
+      font-size: 15px;
+      color: black;
+
+      width: auto;
+    }
+    .cryptoVolumePrice{
+        background-color: red;
+        border-radius: 5px;
+        
+        color: rgb(253, 251, 251);
+  }
+  
+  .cryptoCard .divider{
+    color: rgb(211, 16, 16);
+  }
