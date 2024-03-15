@@ -1,18 +1,20 @@
 .noFavCoins_Icon{
     display: flex;
-    justify-content: center; /* Zentrieren horizontal */
-    align-items: center; /* Zentrieren vertikal */
+    justify-content: center; 
+    align-items: center; 
     width: 100%; /* Vollständige Breite des Bildschirms */
     height: 75vh; /* Vollständige Höhe des Bildschirms */
 }
 
 p{
+  
     text-align: center;
     font-size: 20px;
     font-family:monospace;
 }
 
 .h3 {
+    
     display: flex;
     justify-content: center;
 }

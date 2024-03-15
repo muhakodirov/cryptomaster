@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from './Navbar.module.css'
 import { NavLink, Outlet } from 'react-router-dom'
+import MenuDrawer from './drawer'
 
 
 function Layout() {
@@ -31,7 +32,9 @@ function Layout() {
                             News
                     </NavLink>
                 </div>
+        <MenuDrawer />
         </div>
+        <hr />
          <Outlet />
          </>
     )

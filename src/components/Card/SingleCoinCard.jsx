@@ -1,9 +1,10 @@
+import Chart from '../Chart/Chart';
 import styles from './SingleCoinCard.module.css'
 
 function SingleCoinCard(props) {
-    const data = props
-    return (
-<div className={styles.container}>
+  const data = props
+  return (
+    <div className={styles.container}>
       <div className={styles.coin_card}>
             <div className={styles.avatarContainer}>
               <img
@@ -27,13 +28,12 @@ function SingleCoinCard(props) {
           </div>
         </div>
         <div className={styles.coin_news}>
-              News...soon
-            </div>
-
-
-
+            <Chart value = {data?.priceUsd}/>
+           <p> Today's <b> {data?.name} </b> Chart  </p>
+        </div>
         </div>
       );
-}
+    }
+    
+    export default SingleCoinCard
 
-export default SingleCoinCard
