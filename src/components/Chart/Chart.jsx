@@ -55,56 +55,62 @@
 // }
 
 
-// import React, { useEffect, useRef } from 'react';
-// import { createChart } from 'lightweight-charts';
+import React, { useEffect, useRef } from 'react';
+import { createChart } from 'lightweight-charts';
 
-// const Chart = () => {
-//     const chartContainerRef = useRef(null);
-//   const chartRef = useRef(null);
+const Chart = ({value}) => {
+    const chartContainerRef = useRef(null);
+  const chartRef = useRef(null);
 
-//   useEffect(() => {
-//     const log = console.log;
+  useEffect(() => {
+    const log = console.log;
 
-//     const chartProperties = {
-//       width: 1500,
-//       height: 600,
-//       timeScale: {
-//         timeVisible: true,
-//         secondsVisible: false,
-//       }
-//     };
+    const chartProperties = {
+      width: 960,
+      height: 600,
+      timeScale: {
+        timeVisible: true,
+        secondsVisible: false,
+      }
+    };
 
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch(`http://127.0.0.1:9665/fetchAPI?endpoint=https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1d&limit=1000`);
-//         const data = await response.json();
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://api.binance.com/api/v3/klines?symbol=${value}USDT&interval=1d&limit=1000`);
+        const data = await response.json();
 
-//         const cdata = data.map(d => {
-//           return { time: d[0] / 1000, open: parseFloat(d[1]), high: parseFloat(d[2]), low: parseFloat(d[3]), close: parseFloat(d[4]) };
-//         });
+            // Entfernen Sie den alten Chart, falls vorhanden
+      if (chartRef.current) {
+        chartRef.current.remove();
+      }
 
-//         const chartInstance = createChart(chartContainerRef.current, chartProperties);
-//         const candleSeries = chartInstance.addCandlestickSeries();
-//         candleSeries.setData(cdata);
+
+        const cdata = data.map(d => {
+          return { time: d[0] / 1000, open: parseFloat(d[1]), high: parseFloat(d[2]), low: parseFloat(d[3]), close: parseFloat(d[4]) };
+        });
+
+        const chartInstance = createChart(chartContainerRef.current, chartProperties);
+        const candleSeries = chartInstance.addCandlestickSeries();
+        candleSeries.setData(cdata);
         
-//         chartRef.current = chartInstance; // Save chart instance reference
-//       } catch (err) {
-//         log(err);
-//       }
-//     };
+        chartRef.current = chartInstance; // Save chart instance reference
+      } catch (err) {
+        log(err);
+      }
+    };
 
-//     fetchData();
+    fetchData();
 
-//     // Cleanup function
-//     return () => {
-//       if (chartRef.current) {
-//         chartRef.current.remove();
-//       }
-//     };
+    // Cleanup function
+    return () => {
+      if (chartRef.current === true) {
+        chartRef.current.remove();
+      }
+    };
 
-//   }, []);
+  }, [value]);
 
-//   return <div ref={chartContainerRef} />;
-// };
+  return <div ref={chartContainerRef} />;
+};
 
-// export default Chart;
+export default Chart;

@@ -28,7 +28,7 @@ function SingleCoinCard(props) {
           </div>
         </div>
         <div className={styles.coin_news}>
-            <Chart value = {data?.priceUsd}/>
+            <Chart value = {data?.symbol}/>
            <p> Today's <b> {data?.name} </b> Chart  </p>
         </div>
         </div>

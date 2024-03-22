@@ -6,6 +6,7 @@ import Watchlist from './components/Watchlist/Watchlist'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import Layout from './components/Navbar/Navbar'
 import SinglePage from './components/SingleCoinPage/SinglePage'
+import Converter from './components/Converter/Converter'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route index element={<Content/>} />
         <Route path='watchlist' element={<Watchlist/>} />
         <Route path='/:id' element={<SinglePage/>} />
+        <Route path='/converter' element={<Converter/>} />
         {/* <Route path='news' element={<News/>} /> */}
         {/* <Route path='*' element={<PageNotFound/>} /> */}
       </Route>
