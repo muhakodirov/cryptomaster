@@ -66,7 +66,7 @@ const Chart = ({value}) => {
     const log = console.log;
 
     const chartProperties = {
-      width: 960,
+      width: 850,
       height: 600,
       timeScale: {
         timeVisible: true,

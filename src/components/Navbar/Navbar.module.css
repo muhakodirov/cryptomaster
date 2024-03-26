@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -6,11 +9,53 @@
 }
 
 .navbarLogo {
-    padding-left: 15px;
+    display: flex;
+    height: 70px;
+    padding-bottom: 80px;
+    color:  rgb(41, 193, 201);
+    font-family: 'Bebas Neue';
+    font-size: 35px;
+
+}
+.words{
+    overflow: hidden;
+    margin-top: 35px;
+    padding-top: 10px;
+    height: 100%;
+}
+.span{
+    display: block;
+    padding-left: 20px;
+    font-size: 1.5em;
     color: white;
-    font-family: monospace;
-    font-size: 24px;
-    font-weight: bolder;
+    animation: spin_words 6s infinite;
+}
+@keyframes spin_words {
+    10%{
+        transform: translateY(-112%);
+    }
+
+    25%{
+        transform: translateY(-100%);
+    }
+    35%{
+        transform: translateY(-212%);
+    }
+    50%{
+        transform: translateY(-200%);
+    }
+    60%{
+        transform: translateY(-312%);
+    }
+    75%{
+        transform: translateY(-300%);
+    }
+    85%{
+        transform: translateY(-412%);
+    }
+    100%{
+        transform: translateY(-400%);
+    }
 }
 
 
@@ -48,11 +93,7 @@ a .active{
     display: none;
 }
 
-hr{
-    color: rgb(40, 39, 39);
-    
-    box-shadow: 0px -40px 160px 9px rgb(41, 193, 201);
-}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
@@ -61,9 +102,13 @@ hr{
         justify-content:space-between;
        
     }
+hr{
+    display: none;
+}
 
-    .navbarLogo {
-        font-size: 15px;
+    .navbarLogo h2 {
+        /* display: none; */
+       font-size: larger;
         padding-left: 3px;
     }
 
@@ -71,13 +116,26 @@ hr{
         display: none;
     }
 
+    .words{
+        overflow: hidden;
+        margin-top: 35px;
+        padding-top: 10px;
+        height: 100%;
+    }
+    .span{
+        display: none;
+        padding-left: 18px;
+        font-size: larger;
+        color: white;
+        animation: spin_words 6s infinite;
+    }  
 
     .drawer_container{
         display: flex;
     }
 
     .drawer_menu{
-        font-size: 35px;
+        font-size: 30px;
         color: white;
     }
     .drawer_menu:hover{

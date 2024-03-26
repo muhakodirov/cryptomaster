@@ -18,7 +18,7 @@ function App() {
         <Route index element={<Content/>} />
         <Route path='watchlist' element={<Watchlist/>} />
         <Route path='/:id' element={<SinglePage/>} />
-        <Route path='/converter' element={<Converter/>} />
+        <Route path='converter' element={<Converter/>} />
         {/* <Route path='news' element={<News/>} /> */}
         {/* <Route path='*' element={<PageNotFound/>} /> */}
       </Route>

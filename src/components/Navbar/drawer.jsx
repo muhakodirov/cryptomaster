@@ -35,6 +35,11 @@ export default function MenuDrawer(){
                         to="/news">
                             News
                     </NavLink>
+                    <NavLink
+                        className={styles.drawer_link}
+                        to="/converter">
+                            Converter
+                    </NavLink>
                 </div>
             </Drawer>
         </div>

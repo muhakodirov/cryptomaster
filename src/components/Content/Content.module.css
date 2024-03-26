@@ -80,7 +80,7 @@
     font-size: 40px;
     cursor: pointer;
     transition: color 0.3s ease;
-    animation: bounceAnimation 2s infinite;
+    animation: transition 2s ease;
     /* animation: boun; */
     /* Add a smooth color transition on hover */
 

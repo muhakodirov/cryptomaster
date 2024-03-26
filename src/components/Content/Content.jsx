@@ -83,7 +83,7 @@ function Content() {
                             <Card
                                 image={coin?.item?.large}
                                 name={coin?.item?.name}
-                                price={coin?.item?.data?.price.substring(0,8)}
+                                price={Number(coin?.item?.data?.price).toFixed(4)}
                                 marketCap={coin.item?.data?.market_cap}
                                 volume={coin.item?.data?.total_volume}
                                 />
