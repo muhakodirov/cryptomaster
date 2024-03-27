@@ -1,10 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import coinReducer from '../slice/coinSlice'
+import { newsApi } from '../service/newsApi'
 
 const store = configureStore({
     reducer: {
-        coin: coinReducer
-    }
+        coin: coinReducer,
+        [newsApi.reducerPath]: newsApi.reducer
+    },
+
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware),
+
 })
 
 export default store;
