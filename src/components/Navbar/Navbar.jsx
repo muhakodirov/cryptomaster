@@ -9,48 +9,49 @@ function Layout() {
 
     return (
         <>
-        <div className={styles.navbar}>
-            
-            <div className={styles.navbarLogo}>
-                <h2> CRYPTO </h2> 
-                <div className={styles.words}>
-                  
-                    <span className={styles.span}>NEWS</span>
-                    <span className={styles.span}>TRACKER</span>
-                    <span className={styles.span}>CONVERTER</span>
+            <div className={styles.navbar}>
+
+                <div className={styles.navbarLogo}>
+                    <h2> CRYPTO </h2>
+                    <div className={styles.words}>
+
+                        <span className={styles.span1}>.</span>
+                        <span className={styles.span}>TRACKER</span>
+                        <span className={styles.span}>CONVERTER</span>
+                        <span className={styles.span}>NEWS</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div className={styles.navbarLinks}>
+
+                <div className={styles.navbarLinks}>
                     <NavLink
                         className={styles.navLink}
-                   
+
                         to="/">
-                            Home 
+                        Home
                     </NavLink>
                     <NavLink
-                    
+
                         className={styles.navLink}
                         to="/watchlist">
-                            Watchlist 
+                        Watchlist
                     </NavLink>
                     <NavLink
                         className={styles.navLink}
                         to="/news">
-                            News
+                        News
                     </NavLink>
                     <NavLink
                         className={styles.navLink}
                         to="/converter">
-                            Converter
+                        Converter
                     </NavLink>
                 </div>
-        <MenuDrawer />
-        </div>
-        {/* <hr /> */}
-        <Outlet />
+                <MenuDrawer />
+            </div>
+            {/* <hr /> */}
+            <Outlet />
         </>
-        )
+    )
 
 }
 

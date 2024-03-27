@@ -9,7 +9,7 @@ const store = configureStore({
     },
 
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(pokemonApi.middleware),
+        getDefaultMiddleware().concat(newsApi.middleware),
 
 })
 

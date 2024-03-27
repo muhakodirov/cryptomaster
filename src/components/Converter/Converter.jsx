@@ -10,11 +10,11 @@ function Converter() {
   const [firstOption, setFirstOption] = useState()
   const [secondOption, setSecondOption] = useState()
   const [input, setInput] = useState()
- 
 
 
 
-  useEffect(()=>{
+
+  useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`https://min-api.cryptocompare.com/data/price?fsym=${firstOption}&tsyms=${secondOption}`)
       if (!response.ok) {
@@ -25,12 +25,12 @@ function Converter() {
       if (input) {
         mod = (result[secondOption] * input).toFixed(2)
         console.log(mod)
-      } 
+      }
       setFetchedData(mod)
     }
     fetchData()
   }, [input, firstOption, secondOption])
- 
+
 
 
 
@@ -53,51 +53,51 @@ function Converter() {
     <div className={styles.container}>
 
       <div className={styles.converterContainer}>
-          <p className={styles.converterHeadingText}> Crypto Converter </p>
-       
-          <div className={styles.convertInput}>
-              <input required placeholder='Amount' onChange={(e)=>setInput(e.target.value)} type="number" />
-          </div>
-          
-          <div className={styles.converterOptionsContainer}>
-              <div className={styles.convertFirstOption}>
-             
-                  <select onChange={(e)=> setFirstOption(e.target.value)} id="firstOption">
-                    <option selected value=""> Convert from ... </option>
-                    
-                    <hr />
-                    {currencies.map( (el, i) => <option value={el.symbol}>
-                      {el.currency}
-                      </option>
-                     )}
-                  </select>
-              </div>
-              <div className={styles.convertSecondOption}>
-                  <select onChange={(e)=> setSecondOption(e.target.value)} id="secondOption">
-                    <option selected value=""> to ... </option>
-                    <hr />
+        <h1 className={styles.converterHeadingText}> CRYPTO CONVERTER </h1>
 
-                    {currencies.map( (el, i) => <>
-                        <option value={el.symbol}> {el.currency} </option>
-                    </> )}
-                  </select>
-              </div>
-          </div>    
-          <br /> 
-    <hr />
-          <div className={styles.converterResult}>
-            {input && firstOption && secondOption ? (
-              <span>
-                 {`${input} ${firstOption} = `}
-                 {isNaN(fetchedData) ? (
-                   <AiOutlineLoading3Quarters className={styles.loader} />
-                 ) : (
-                   fetchedData 
-                 )}
-                 {` ${secondOption}`}
-              </span>
-            ) : 'Select all inputs for converting'}
+        <div className={styles.convertInput}>
+          <input required placeholder='Amount' onChange={(e) => setInput(e.target.value)} type="number" />
+        </div>
+
+        <div className={styles.converterOptionsContainer}>
+          <div className={styles.convertFirstOption}>
+
+            <select onChange={(e) => setFirstOption(e.target.value)} id="firstOption">
+              <option selected value=""> Convert from ... </option>
+
+              <hr />
+              {currencies.map((el, i) => <option value={el.symbol}>
+                {el.currency}
+              </option>
+              )}
+            </select>
           </div>
+          <div className={styles.convertSecondOption}>
+            <select onChange={(e) => setSecondOption(e.target.value)} id="secondOption">
+              <option selected value=""> to ... </option>
+              <hr />
+
+              {currencies.map((el, i) => <>
+                <option value={el.symbol}> {el.currency} </option>
+              </>)}
+            </select>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <div className={styles.converterResult}>
+          {input && firstOption && secondOption ? (
+            <span>
+              {`${input} ${firstOption} = `}
+              {isNaN(fetchedData) ? (
+                <AiOutlineLoading3Quarters className={styles.loader} />
+              ) : (
+                fetchedData
+              )}
+              {` ${secondOption}`}
+            </span>
+          ) : 'Select all inputs for converting'}
+        </div>
       </div>
     </div>
   )
