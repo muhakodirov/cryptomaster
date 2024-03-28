@@ -7,6 +7,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound'
 import Layout from './components/Navbar/Navbar'
 import SinglePage from './components/SingleCoinPage/SinglePage'
 import Converter from './components/Converter/Converter'
+import News from './components/News/News'
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Route path='watchlist' element={<Watchlist/>} />
         <Route path='/:id' element={<SinglePage/>} />
         <Route path='converter' element={<Converter/>} />
-        {/* <Route path='news' element={<News/>} /> */}
+        <Route path='news' element={<News/>} />
         {/* <Route path='*' element={<PageNotFound/>} /> */}
       </Route>
     </Routes>
