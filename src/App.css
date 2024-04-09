@@ -4,3 +4,14 @@
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 25px;
 }
+
+.active {
+  text-align: center;
+  width: 90px;
+  height: max-content;
+  color: #fefefe;
+  background-color: rgb(186, 9, 9);
+  border-radius: 5px;
+  font-family: cursive;
+  text-decoration: none;
+}

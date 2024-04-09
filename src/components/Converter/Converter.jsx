@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './Converter.module.css'
 import { currencies } from './currency'
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-
+import { useSelector } from 'react-redux';
 
 
 function Converter() {
@@ -10,7 +10,7 @@ function Converter() {
   const [firstOption, setFirstOption] = useState()
   const [secondOption, setSecondOption] = useState()
   const [input, setInput] = useState()
-
+  const coinsList = useSelector((state) => state?.coin?.coin)
 
 
 
@@ -32,23 +32,6 @@ function Converter() {
   }, [input, firstOption, secondOption])
 
 
-
-
-  // const fetchCurrency = async (from, to) => {
-  //     const response = await fetch(`https://min-api.cryptocompare.com/data/price?fsym=${from}&tsyms=${to}`)
-  //     if (!response.ok) {
-  //       return 'Error to fetch'
-  //     }
-  //     const result = await response.json()
-  //     let mod;
-  //     if (input) {
-  //       mod = (result[to] * input).toFixed(2)
-  //     } 
-  //     setFetchedData(mod)
-  //   }
-
-
-
   return (
     <div className={styles.container}>
 
@@ -64,22 +47,28 @@ function Converter() {
 
             <select onChange={(e) => setFirstOption(e.target.value)} id="firstOption">
               <option selected value=""> Convert from ... </option>
-
               <hr />
-              {currencies.map((el, i) => <option value={el.symbol}>
-                {el.currency}
-              </option>
-              )}
+              <option value="USD"> US Dollar </option>
+              <option value="EUR"> Euro </option>
+              {coinsList.slice(0, 50).map((coin, id) => {
+                return <option key={id} value={coin.symbol}>
+                  {coin.name}
+                </option>
+              })}
             </select>
           </div>
           <div className={styles.convertSecondOption}>
             <select onChange={(e) => setSecondOption(e.target.value)} id="secondOption">
               <option selected value=""> to ... </option>
               <hr />
+              <option value="USD"> US Dollar </option>
+              <option value="EUR"> Euro </option>
 
-              {currencies.map((el, i) => <>
-                <option value={el.symbol}> {el.currency} </option>
-              </>)}
+              {coinsList.slice(0, 50).map((coin, id) => {
+                return <option key={id} value={coin.symbol}>
+                  {coin.name}
+                </option>
+              })}
             </select>
           </div>
         </div>

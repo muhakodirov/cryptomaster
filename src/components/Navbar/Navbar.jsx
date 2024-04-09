@@ -23,32 +23,37 @@ function Layout() {
                 </div>
 
                 <div className={styles.navbarLinks}>
+
                     <NavLink
                         className={styles.navLink}
-
-                        to="/">
+                        to="/" exact={true}>
                         Home
                     </NavLink>
-                    <NavLink
 
+                    <NavLink
                         className={styles.navLink}
+                        exact={true}
                         to="/watchlist">
                         Watchlist
                     </NavLink>
                     <NavLink
+
                         className={styles.navLink}
+                        exact={true}
                         to="/news">
                         News
                     </NavLink>
                     <NavLink
+
                         className={styles.navLink}
+                        exact={true}
                         to="/converter">
                         Converter
                     </NavLink>
                 </div>
                 <MenuDrawer />
             </div>
-            {/* <hr /> */}
+
             <Outlet />
         </>
     )

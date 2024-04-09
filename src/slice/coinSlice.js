@@ -1,13 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import SinglePage from "../components/SingleCoinPage/SinglePage";
-
-const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
 const initialState = {
     coin: [],
-    favorites: storedFavorites,
     isLoading: false
 }
+
 
 export const url = "https://api.coincap.io/v2/assets"
 
@@ -26,7 +23,14 @@ const coinSlice = createSlice({
     initialState,
     reducers: {
         toggleFavorite: (state, action) => {
-            state.coin = state.coin.map( (c) => c.id === action.payload ? {...c, isFavorite: !c.isFavorite} : {...c});
+            state.coin = state.coin.map((c) => c.id === action.payload ? { ...c, isFavorite: !c.isFavorite } : { ...c });
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            if (!favorites.includes(action.payload)) {
+                localStorage.setItem('favorites', JSON.stringify([...favorites, action.payload]));
+            } else {
+                const updatedFavorites = favorites.filter(el => el !== action.payload);
+                localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
+            }
         }
     },
     extraReducers: (builder) => {
@@ -35,13 +39,22 @@ const coinSlice = createSlice({
         })
         builder.addCase(fetchCoins.fulfilled, (state, action) => {
             state.isLoading = false
-            
+
+            const favoritesID = JSON.parse(localStorage.getItem('favorites')) || [];
+
+
             state.coin = action.payload.data.map(el => {
+                if (favoritesID.includes(el.id)) {
                     return {
                         ...el,
-                        isFavorite: false
+                        isFavorite: true
                     }
-                })  
+                }
+                return {
+                    ...el,
+                    isFavorite: false
+                }
+            })
         })
     },
 })

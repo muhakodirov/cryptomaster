@@ -34,6 +34,7 @@
 
 }
 
+
 .span {
     display: block;
     padding-left: 20px;
@@ -86,25 +87,13 @@
 }
 
 .navLink {
-    text-align: center;
-    width: 90px;
-    height: max-content;
-    color: #050505;
-    font-weight: bold;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
+    font-size: 17px;
     font-family: cursive;
-    text-decoration: none;
+    font-weight: bold;
 }
 
 .navLink:hover {
-    background-color: rgb(41, 193, 201);
-    color: white;
-}
-
-a .active {
-    background-color: #050505;
-    color: red
+    color: rgb(217, 217, 217);
 }
 
 .drawer_container {
@@ -162,7 +151,7 @@ a .active {
     .drawer_menu:hover {
         font-size: 45px;
         transition: 0.2s;
-        color: rgb(13, 136, 170);
+        color: rgb(217, 217, 217);
 
     }
 
@@ -178,7 +167,7 @@ a .active {
 
     .drawer_link {
         text-decoration: none;
-        color: #b8b3b3;
+        color: white;
         font-size: 20px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         margin-bottom: 20px;
@@ -187,8 +176,8 @@ a .active {
     }
 
     .drawer_link:hover {
-        color: rgb(13, 136, 170);
-        font-size: 22px;
+        color: rgb(217, 217, 217);
+        font-size: 21px;
         transition: 0.3s;
 
     }
